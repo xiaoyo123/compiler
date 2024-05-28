@@ -40,16 +40,15 @@
       know about them.  */
    enum yytokentype {
      STRING = 258,
-     COLON = 259,
-     COMMA = 260,
-     LBRACE = 261,
-     RBRACE = 262,
-     LBRACKET = 263,
-     RBRACKET = 264,
-     TRUE = 265,
-     FALSE = 266,
-     NUMBER = 267,
-     VNULL = 268
+     NUMBER = 259,
+     BOOLEAN = 260,
+     COLON = 261,
+     COMMA = 262,
+     LBRACE = 263,
+     RBRACE = 264,
+     LBRACKET = 265,
+     RBRACKET = 266,
+     VNULL = 267
    };
 #endif
 
@@ -60,14 +59,14 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 7 "grammer.y"
+#line 8 "grammer.y"
 
     char *string;
 
 
 
 /* Line 1676 of yacc.c  */
-#line 71 "grammer.tab.h"
+#line 70 "grammer.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

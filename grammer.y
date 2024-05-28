@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 void yyerror(const char *s);
 %}
 
@@ -9,13 +10,17 @@ void yyerror(const char *s);
 }
 
 %token <string> STRING
-%token COLON COMMA LBRACE RBRACE LBRACKET RBRACKET TRUE FALSE NUMBER VNULL
+%token <string> NUMBER
+%token <string> BOOLEAN
+%token COLON COMMA LBRACE RBRACE LBRACKET RBRACKET VNULL
+%type <string> value
+%type <string> array
+%type <string> values
 
 %%
 
-
 object:
-    LBRACE members RBRACE { printf("object"); }
+    LBRACE members RBRACE 
     ;
 
 members:
@@ -24,26 +29,48 @@ members:
     ;
 
 member:
-    STRING COLON value { printf("%s, ", $1); }
+    STRING COLON value {printf("%s:%s\n", $1, $3); }
+
+    | STRING COLON array { printf("%s: array\n   %s\n", $1, $3); }
+    | STRING COLON object { printf("%s: object\n", $1); }
     ;
 
 value:
-    STRING { printf("string "); }
-    | NUMBER { printf("number "); }
-    | TRUE { printf("boolean "); }
-    | FALSE { printf("boolean "); }
-    | object
-    | array
-    | VNULL { printf("null"); }
+    STRING { 
+                char *result = malloc(strlen($1) + 20); 
+                strcpy(result, " string "); 
+                strcat(result, $1);
+                $$ = result;
+    }
+    | NUMBER { 
+                char *result = malloc(strlen($1) + 20); 
+                strcpy(result, " number "); 
+                strcat(result, $1);
+                $$ = result;
+    }
+    | BOOLEAN {
+                char *result = malloc(strlen($1) + 20); 
+                strcpy(result, " boolean "); 
+                strcat(result, $1);
+                $$ = result;
+    }
+    | VNULL { $$ = " null"; }
     ;
 
 array:
-    LBRACKET values RBRACKET { printf("array "); }
+    LBRACKET values RBRACKET { $$ = $2 }
     ;
 
+
 values:
-    value
-    | value COMMA values
+    value { $$ = $1 }
+    | value COMMA values{
+        char *result = malloc(strlen($$) + 80);
+        strcpy(result, $$);
+        strcat(result, $3);
+        $$ = result;
+        free($1)
+    }
     ;
 
 %%
@@ -53,6 +80,6 @@ main(int argc, char **argv){
 }
 
 void yyerror(const char *s) {
-  fprintf(stderr, "錯誤: %s\\n", s);
+  fprintf(stderr, "錯誤: %s\n", s);
   exit(1);
 }

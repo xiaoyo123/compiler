@@ -14,9 +14,8 @@
 \}                return RBRACE;
 \[                return LBRACKET;
 \]                return RBRACKET;
-true              return TRUE;
-false             return FALSE;
--?[0-9]+(\.[0-9]+)?([eE][-+]?[0-9]+)? { return NUMBER; }
+true|false       { yylval.string = strdup(yytext); return BOOLEAN; }
+-?[0-9]+(\.[0-9]+)?([eE][-+]?[0-9]+)? { yylval.string = strdup(yytext); return NUMBER; }
 null              return VNULL;
 
 %%
