@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 void yyerror(const char *s);
+int object_size_cnt = 0;
+
 %}
 
 %union {
@@ -17,6 +19,7 @@ void yyerror(const char *s);
 %type <string> array
 %type <string> values
 
+
 %%
 
 object:
@@ -24,15 +27,15 @@ object:
     ;
 
 members:
-    member
-    | member COMMA members
+    member {object_size_cnt++;}
+    | member COMMA members {object_size_cnt++;}
     ;
 
 member:
     STRING COLON value {printf("%s:%s\n", $1, $3); }
 
     | STRING COLON array { printf("%s: array\n   %s\n", $1, $3); }
-    | STRING COLON object { printf("%s: object\n", $1); }
+    | STRING COLON object { printf("%s: object, object size: %d\n", $1, object_size_cnt); object_size_cnt = 0; }
     ;
 
 value:
