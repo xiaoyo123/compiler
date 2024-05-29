@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void yyerror(const char *s);
 int obj_sz = 0;
 int arr_sz = 0;
 
@@ -107,7 +106,6 @@ main(int argc, char **argv){
     yyparse();
 }
 
-void yyerror(const char *s) {
+yyerror(const char *s) {
   fprintf(stderr, "錯誤: %s\n", s);
-  exit(1);
 }

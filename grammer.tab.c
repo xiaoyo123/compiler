@@ -73,14 +73,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void yyerror(const char *s);
 int obj_sz = 0;
 int arr_sz = 0;
 
 
 
 /* Line 189 of yacc.c  */
-#line 84 "grammer.tab.c"
+#line 83 "grammer.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -127,14 +126,14 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 11 "grammer.y"
+#line 10 "grammer.y"
 
     char *string;
 
 
 
 /* Line 214 of yacc.c  */
-#line 138 "grammer.tab.c"
+#line 137 "grammer.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -146,7 +145,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 150 "grammer.tab.c"
+#line 149 "grammer.tab.c"
 
 #ifdef short
 # undef short
@@ -433,8 +432,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    28,    28,    29,    33,    39,    45,    51,    52,    53,
-      57,    69,    70,    74,    79,    93,    94
+       0,    27,    27,    28,    32,    38,    44,    50,    51,    52,
+      56,    68,    69,    73,    78,    92,    93
 };
 #endif
 
@@ -1342,7 +1341,7 @@ yyreduce:
         case 4:
 
 /* Line 1455 of yacc.c  */
-#line 33 "grammer.y"
+#line 32 "grammer.y"
     { 
                 char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
                 strcpy(result, " string "); 
@@ -1354,7 +1353,7 @@ yyreduce:
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 39 "grammer.y"
+#line 38 "grammer.y"
     { 
                 char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
                 strcpy(result, " number "); 
@@ -1366,7 +1365,7 @@ yyreduce:
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 45 "grammer.y"
+#line 44 "grammer.y"
     {
                 char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
                 strcpy(result, " boolean "); 
@@ -1378,14 +1377,14 @@ yyreduce:
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 51 "grammer.y"
+#line 50 "grammer.y"
     { (yyval.string) = " null"; ;}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 57 "grammer.y"
+#line 56 "grammer.y"
     {
         char *result = malloc(20 * sizeof(char));
         strcpy(result, " object size: ");
@@ -1400,28 +1399,28 @@ yyreduce:
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 69 "grammer.y"
+#line 68 "grammer.y"
     {obj_sz++;;}
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 70 "grammer.y"
+#line 69 "grammer.y"
     {obj_sz++;;}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 74 "grammer.y"
+#line 73 "grammer.y"
     {printf("%s:%s\n", (yyvsp[(1) - (3)].string), (yyvsp[(3) - (3)].string)); ;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 79 "grammer.y"
+#line 78 "grammer.y"
     { 
         char *result = malloc((strlen((yyvsp[(2) - (3)].string)) + 20) * sizeof(char));
         strcpy(result, (yyvsp[(2) - (3)].string));
@@ -1437,14 +1436,14 @@ yyreduce:
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 93 "grammer.y"
+#line 92 "grammer.y"
     { arr_sz++; (yyval.string) = (yyvsp[(1) - (1)].string) ;}
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 94 "grammer.y"
+#line 93 "grammer.y"
     {
         arr_sz++;
         char *result = malloc(1000 * sizeof(char));
@@ -1458,7 +1457,7 @@ yyreduce:
 
 
 /* Line 1455 of yacc.c  */
-#line 1462 "grammer.tab.c"
+#line 1461 "grammer.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1670,14 +1669,13 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 104 "grammer.y"
+#line 103 "grammer.y"
 
 
 main(int argc, char **argv){
     yyparse();
 }
 
-void yyerror(const char *s) {
+yyerror(const char *s) {
   fprintf(stderr, "錯誤: %s\n", s);
-  exit(1);
 }
