@@ -23,10 +23,6 @@ int arr_sz = 0;
 
 %%
 
-json:
-    | value
-    ;
-
 value:
     STRING { 
         char *result = malloc((strlen($1) + 10) * sizeof(char)); 
