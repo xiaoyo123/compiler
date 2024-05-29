@@ -19,7 +19,3 @@ true|false       { yylval.string = strdup(yytext); return BOOLEAN; }
 null              return VNULL;
 
 %%
-
-int yywrap() {
-    return 1;
-}

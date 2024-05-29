@@ -1572,8 +1572,3 @@ int main()
 	}
 #endif
 #line 21 "token.l"
-
-
-int yywrap() {
-    return 1;
-}
