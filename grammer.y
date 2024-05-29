@@ -4,6 +4,7 @@
 #include <string.h>
 void yyerror(const char *s);
 int obj_sz = 0;
+int arr_sz = 0;
 
 %}
 
@@ -30,33 +31,33 @@ json:
 
 value:
     STRING { 
-                char *result = malloc(strlen($1) + 20); 
+                char *result = malloc((strlen($1) + 10) * sizeof(char)); 
                 strcpy(result, " string "); 
                 strcat(result, $1);
                 $$ = result;
     }
     | NUMBER { 
-                char *result = malloc(strlen($1) + 20); 
+                char *result = malloc((strlen($1) + 10) * sizeof(char)); 
                 strcpy(result, " number "); 
                 strcat(result, $1);
                 $$ = result;
     }
     | BOOLEAN {
-                char *result = malloc(strlen($1) + 20); 
+                char *result = malloc((strlen($1) + 10) * sizeof(char)); 
                 strcpy(result, " boolean "); 
                 strcat(result, $1);
                 $$ = result;
     }
-    | VNULL { $$ = "null"; }
+    | VNULL { $$ = " null"; }
     | array
     | object
     ;
 
 object:
     LBRACE members RBRACE {
-        char *result = malloc(20);
+        char *result = malloc(20 * sizeof(char));
         strcpy(result, " object size: ");
-        char *num;
+        char *num = malloc(5 * sizeof(char));
         itoa(obj_sz, num, 10);
         strcat(result, num);
         $$ = result;
@@ -71,21 +72,28 @@ members:
 
 member:
     STRING COLON value {printf("%s:%s\n", $1, $3); }
-
-    // | STRING COLON array { printf("%s: array\n   %s\n", $1, $3); }
-    // | STRING COLON object { printf("%s: object, object size: %d\n", $1, obj_sz); obj_sz = 0; }
     ;
 
 
 array:
-    LBRACKET values RBRACKET { $$ = $2 }
+    LBRACKET values RBRACKET { 
+        char *result = malloc((strlen($2) + 20) * sizeof(char));
+        strcpy(result, $2);
+        strcat(result, " array size: ");
+        char *num = malloc(5 * sizeof(char));
+        itoa(arr_sz, num, 10);
+        strcat(result, num);
+        $$ = result;
+        arr_sz = 0;
+    }
     ;
 
 
 values:
-    value { $$ = $1 }
+    value { arr_sz++; $$ = $1 }
     | value COMMA values{
-        char *result = malloc(strlen($$) + 80);
+        arr_sz++;
+        char *result = malloc(1000 * sizeof(char));
         strcpy(result, $$);
         strcat(result, $3);
         $$ = result;
