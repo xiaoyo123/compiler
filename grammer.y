@@ -106,6 +106,6 @@ main(int argc, char **argv){
     yyparse();
 }
 
-yyerror(const char *s) {
-  fprintf(stderr, "錯誤: %s\n", s);
+yyerror(const char *s){
+    fprintf(stderr, "錯誤: %s\n", s);
 }
