@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 void yyerror(const char *s);
-int object_size_cnt = 0;
+int obj_sz = 0;
 
 %}
 
@@ -18,24 +18,14 @@ int object_size_cnt = 0;
 %type <string> value
 %type <string> array
 %type <string> values
+%type <string> object
 
+%start json
 
 %%
 
-object:
-    LBRACE members RBRACE 
-    ;
-
-members:
-    member {object_size_cnt++;}
-    | member COMMA members {object_size_cnt++;}
-    ;
-
-member:
-    STRING COLON value {printf("%s:%s\n", $1, $3); }
-
-    | STRING COLON array { printf("%s: array\n   %s\n", $1, $3); }
-    | STRING COLON object { printf("%s: object, object size: %d\n", $1, object_size_cnt); object_size_cnt = 0; }
+json:
+    | value
     ;
 
 value:
@@ -57,8 +47,35 @@ value:
                 strcat(result, $1);
                 $$ = result;
     }
-    | VNULL { $$ = " null"; }
+    | VNULL { $$ = "null"; }
+    | array
+    | object
     ;
+
+object:
+    LBRACE members RBRACE {
+        char *result = malloc(20);
+        strcpy(result, " object size: ");
+        char *num;
+        itoa(obj_sz, num, 10);
+        strcat(result, num);
+        $$ = result;
+        obj_sz = 0;
+    }
+    ;
+
+members:
+    member {obj_sz++;}
+    | member COMMA members {obj_sz++;}
+    ;
+
+member:
+    STRING COLON value {printf("%s:%s\n", $1, $3); }
+
+    // | STRING COLON array { printf("%s: array\n   %s\n", $1, $3); }
+    // | STRING COLON object { printf("%s: object, object size: %d\n", $1, obj_sz); obj_sz = 0; }
+    ;
+
 
 array:
     LBRACKET values RBRACKET { $$ = $2 }
