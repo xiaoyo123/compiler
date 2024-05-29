@@ -20,7 +20,6 @@ int arr_sz = 0;
 %type <string> values
 %type <string> object
 
-%start json
 
 %%
 
