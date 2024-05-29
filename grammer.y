@@ -30,22 +30,22 @@ json:
 
 value:
     STRING { 
-                char *result = malloc((strlen($1) + 10) * sizeof(char)); 
-                strcpy(result, " string "); 
-                strcat(result, $1);
-                $$ = result;
+        char *result = malloc((strlen($1) + 10) * sizeof(char)); 
+        strcpy(result, " string "); 
+        strcat(result, $1);
+        $$ = result;
     }
     | NUMBER { 
-                char *result = malloc((strlen($1) + 10) * sizeof(char)); 
-                strcpy(result, " number "); 
-                strcat(result, $1);
-                $$ = result;
+        char *result = malloc((strlen($1) + 10) * sizeof(char)); 
+        strcpy(result, " number "); 
+        strcat(result, $1);
+        $$ = result;
     }
     | BOOLEAN {
-                char *result = malloc((strlen($1) + 10) * sizeof(char)); 
-                strcpy(result, " boolean "); 
-                strcat(result, $1);
-                $$ = result;
+        char *result = malloc((strlen($1) + 10) * sizeof(char)); 
+        strcpy(result, " boolean "); 
+        strcat(result, $1);
+        $$ = result;
     }
     | VNULL { $$ = " null"; }
     | array

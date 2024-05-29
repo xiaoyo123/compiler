@@ -1343,10 +1343,10 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 32 "grammer.y"
     { 
-                char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
-                strcpy(result, " string "); 
-                strcat(result, (yyvsp[(1) - (1)].string));
-                (yyval.string) = result;
+        char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
+        strcpy(result, " string "); 
+        strcat(result, (yyvsp[(1) - (1)].string));
+        (yyval.string) = result;
     ;}
     break;
 
@@ -1355,10 +1355,10 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 38 "grammer.y"
     { 
-                char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
-                strcpy(result, " number "); 
-                strcat(result, (yyvsp[(1) - (1)].string));
-                (yyval.string) = result;
+        char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
+        strcpy(result, " number "); 
+        strcat(result, (yyvsp[(1) - (1)].string));
+        (yyval.string) = result;
     ;}
     break;
 
@@ -1367,10 +1367,10 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 44 "grammer.y"
     {
-                char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
-                strcpy(result, " boolean "); 
-                strcat(result, (yyvsp[(1) - (1)].string));
-                (yyval.string) = result;
+        char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
+        strcpy(result, " boolean "); 
+        strcat(result, (yyvsp[(1) - (1)].string));
+        (yyval.string) = result;
     ;}
     break;
 
