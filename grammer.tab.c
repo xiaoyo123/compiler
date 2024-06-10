@@ -68,7 +68,7 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 "grammer.y"
+#line 1 ".\\grammer.y"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -126,7 +126,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 10 "grammer.y"
+#line 10 ".\\grammer.y"
 
     char *string;
 
@@ -1340,7 +1340,7 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 27 "grammer.y"
+#line 27 ".\\grammer.y"
     { 
         char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
         strcpy(result, " string "); 
@@ -1352,7 +1352,7 @@ yyreduce:
   case 3:
 
 /* Line 1455 of yacc.c  */
-#line 33 "grammer.y"
+#line 33 ".\\grammer.y"
     { 
         char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
         strcpy(result, " number "); 
@@ -1364,7 +1364,7 @@ yyreduce:
   case 4:
 
 /* Line 1455 of yacc.c  */
-#line 39 "grammer.y"
+#line 39 ".\\grammer.y"
     {
         char *result = malloc((strlen((yyvsp[(1) - (1)].string)) + 10) * sizeof(char)); 
         strcpy(result, " boolean "); 
@@ -1376,14 +1376,14 @@ yyreduce:
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 45 "grammer.y"
+#line 45 ".\\grammer.y"
     { (yyval.string) = " null"; ;}
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 51 "grammer.y"
+#line 51 ".\\grammer.y"
     {
         char *result = malloc(20 * sizeof(char));
         strcpy(result, " object size: ");
@@ -1398,28 +1398,28 @@ yyreduce:
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 63 "grammer.y"
+#line 63 ".\\grammer.y"
     {obj_sz++;;}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 64 "grammer.y"
+#line 64 ".\\grammer.y"
     {obj_sz++;;}
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 68 "grammer.y"
+#line 68 ".\\grammer.y"
     {printf("%s:%s\n", (yyvsp[(1) - (3)].string), (yyvsp[(3) - (3)].string)); ;}
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 73 "grammer.y"
+#line 73 ".\\grammer.y"
     { 
         char *result = malloc((strlen((yyvsp[(2) - (3)].string)) + 20) * sizeof(char));
         strcpy(result, (yyvsp[(2) - (3)].string));
@@ -1435,14 +1435,14 @@ yyreduce:
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 87 "grammer.y"
+#line 87 ".\\grammer.y"
     { arr_sz++; (yyval.string) = (yyvsp[(1) - (1)].string) ;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 88 "grammer.y"
+#line 88 ".\\grammer.y"
     {
         arr_sz++;
         char *result = malloc(1000 * sizeof(char));
@@ -1668,7 +1668,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 98 "grammer.y"
+#line 98 ".\\grammer.y"
 
 
 main(int argc, char **argv){

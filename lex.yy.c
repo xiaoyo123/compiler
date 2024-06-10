@@ -382,9 +382,9 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "token.l"
+#line 1 ".\\token.l"
 #define INITIAL 0
-#line 2 "token.l"
+#line 2 ".\\token.l"
 #include "grammer.tab.h"
 #include <string.h>
 
@@ -539,7 +539,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 7 "token.l"
+#line 7 ".\\token.l"
 
 
 #line 546 "lex.yy.c"
@@ -627,62 +627,62 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 9 "token.l"
+#line 9 ".\\token.l"
 ;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "token.l"
+#line 10 ".\\token.l"
 { yylval.string = strdup(yytext); return STRING; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "token.l"
+#line 11 ".\\token.l"
 return COLON;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 "token.l"
+#line 12 ".\\token.l"
 return COMMA;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 13 "token.l"
+#line 13 ".\\token.l"
 return LBRACE;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 14 "token.l"
+#line 14 ".\\token.l"
 return RBRACE;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 15 "token.l"
+#line 15 ".\\token.l"
 return LBRACKET;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 16 "token.l"
+#line 16 ".\\token.l"
 return RBRACKET;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 17 "token.l"
+#line 17 ".\\token.l"
 { yylval.string = strdup(yytext); return BOOLEAN; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 18 "token.l"
+#line 18 ".\\token.l"
 { yylval.string = strdup(yytext); return NUMBER; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 19 "token.l"
+#line 19 ".\\token.l"
 return VNULL;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 21 "token.l"
+#line 21 ".\\token.l"
 ECHO;
 	YY_BREAK
 #line 689 "lex.yy.c"
@@ -1571,4 +1571,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 21 "token.l"
+#line 21 ".\\token.l"
