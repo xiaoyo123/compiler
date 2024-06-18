@@ -87,8 +87,7 @@ ex:
 則會將陣列的內容輸出再輸出類型及大小
 ex:
 ```
-"powers": string "Million tonne punch" string "Damage resistance"
-string "Superhuman reflexes" array size: 3
+"powers": string "Million tonne punch" string "Damage resistance" string "Superhuman reflexes" array size: 3
 ```
 若為物件:
 則會先輸出內容物，再輸出key和類型及大小
