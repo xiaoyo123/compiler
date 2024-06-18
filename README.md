@@ -68,7 +68,7 @@ get-Content [jsonfile] | ./a.exe
 ```
 ### Output1:
 
-![螢幕擷取畫面 2024-06-18 145626](https://hackmd.io/_uploads/HkXKbhABC.png)
+![image](output.png)
 
 
 ### 輸出說明:
@@ -101,7 +101,7 @@ ex:
 "project memeber": object size: 4
 ```
 陣列內為物件則為下圖
-![螢幕擷取畫面 2024-06-18 143124](https://hackmd.io/_uploads/Ski_bnABC.png)
+![image](array_object.png)
 
 顏色為對應的物件內容
 members是有三個物件類型的陣列
@@ -118,6 +118,6 @@ input:
 }
 ```
 output:
-![螢幕擷取畫面 2024-06-18 144036](https://hackmd.io/_uploads/B1pwbhCrA.png)
+![image](error.png)
 
 input的內容最後少了一個"，所以他是不合法的json檔案，故發生syntax error
