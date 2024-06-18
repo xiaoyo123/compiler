@@ -59,7 +59,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 10 ".\\grammer.y"
+#line 10 "grammer.y"
 
     char *string;
 

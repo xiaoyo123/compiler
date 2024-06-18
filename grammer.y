@@ -102,5 +102,5 @@ main(int argc, char **argv){
 }
 
 yyerror(const char *s){
-    fprintf(stderr, "錯誤: %s\n", s);
+    fprintf(stderr, "error: %s\n", s);
 }
