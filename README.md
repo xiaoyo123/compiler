@@ -18,7 +18,7 @@ get-Content [jsonfile] | ./a.exe
 ```
 ([jsonfile]請自行改成json檔案的路徑)
 
-## Run
+## IO
 
 ### Input1:
 ```json
