@@ -3,7 +3,7 @@
 ## 主題: Parse json的檔案將資料的key、value和型態輸出
 ### <font color=blue size=4>組員及分工: 資工3A 01057020 林佑丞(100%)</font>
 
-## 使用說明
+## Run
 1. 請先安裝flex、bison和wxDevC++
 2. 輸入指令(cmd)
 ```cmd=
